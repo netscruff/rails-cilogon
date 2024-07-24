@@ -274,10 +274,10 @@ Devise.setup do |config|
   # config.omniauth :github, 'APP_ID', 'APP_SECRET', scope: 'user,public_repo'
   config.omniauth :openid_connect, {
     name: :openid_connect,
-    scope: [:openid, :email, :profile, :'org.cilogon.userinfo'],
+    scope: [:openid, :email, :profile],
     response_type: :code,
-    discovery: true,
     issuer: "https://cilogon.org",
+    discovery: true,
     client_options: {
       uid_field: "sub",
       port: 443,
@@ -285,9 +285,10 @@ Devise.setup do |config|
       host: "cilogon.org",
       identifier: ENV["OP_CLIENT_ID"],
       secret: ENV["OP_SECRET_KEY"],
-      redirect_uri: "http://localhost:3000/users/auth/openid_connect/callback",
+      redirect_uri: "http://localhost:3000/users/auth/openid_connect/callback"
     },
-  }  
+  }
+  config.omniauth :facebook, "APP_ID", "APP_SECRET"
   # ==> Warden configuration
   # If you want to use other strategies, that are not supported by Devise, or
   # change the failure app, you can configure them inside the config.warden block.
