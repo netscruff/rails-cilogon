@@ -274,7 +274,7 @@ Devise.setup do |config|
   # config.omniauth :github, 'APP_ID', 'APP_SECRET', scope: 'user,public_repo'
   config.omniauth :openid_connect, {
     name: :openid_connect,
-    scope: [:openid, :email, :profile],
+    scope: [:openid, :email, :profile, :"org.cilogon.userinfo"],
     response_type: :code,
     issuer: "https://cilogon.org",
     discovery: true,
